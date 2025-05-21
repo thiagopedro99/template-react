@@ -23,14 +23,13 @@ const Footer = () => {
       }}
     >
       <Container maxWidth="lg">
-        <Grid container spacing={4}>
+        <Grid container spacing={12}>
           <Grid item xs={12} md={4}>
             <Typography variant="h6" gutterBottom>
-              TENDENDÊ
+              Template
             </Typography>
             <Typography variant="body">
-              Levando a magia do samba para todos os palcos, o Tendendê une
-              tradição e inovação numa experiência musical única.
+              template criado para facilitar o desenvolvimento de novos projetos
             </Typography>
           </Grid>
           <Grid item xs={12} md={4}>
@@ -44,7 +43,7 @@ const Footer = () => {
               Telefone: (11) 99999-9999
             </Typography>
             <Box sx={{ mt: 2 }}>
-              <IconButton color="inherit" aria-label="Facebook">
+              <IconButton color="inherit" edge="start" aria-label="Facebook" sx={{ pl: 1.2 }}>
                 <FacebookIcon />
               </IconButton>
               <IconButton color="inherit" aria-label="Instagram">
