@@ -1,4 +1,4 @@
-# 🚀 React Vite Template
+# 🚀 React Vite Template SWC
 
 Um template moderno e otimizado para projetos React usando Vite e SWC.
 
@@ -20,7 +20,7 @@ Um template moderno e otimizado para projetos React usando Vite e SWC.
 - React Router
 - Styled Components
 - Axios
-- ESLint
+- ESLint + Prettier
 
 ## 🚀 Como usar
 
@@ -108,4 +108,4 @@ Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para m
 
 ---
 
-Desenvolvido por [Thiago Silva](https://github.com/thiagopedro99)
+Desenvolvido com ❤️ por [thiago Silva](https://github.com/thiagopedro99)
