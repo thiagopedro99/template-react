@@ -108,4 +108,4 @@ Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para m
 
 ---
 
-Desenvolvido com ❤️ por [thiago Silva](https://github.com/thiagopedro99)
+Desenvolvido por [thiago Silva](https://github.com/thiagopedro99)
