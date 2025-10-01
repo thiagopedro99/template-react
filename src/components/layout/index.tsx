@@ -1,32 +1,38 @@
-import React from "react";
-import { Box } from "@mui/material";
+// src/components/layout/index.tsx
+import React, { useEffect } from "react";
 import Navbar from "@components/navbar";
 import Footer from "@components/footer";
+import { Container } from "@components/common";
+import { LayoutWrapper, Main } from "./styles";
 import { LayoutProps } from "./types";
 
 const Layout: React.FC<LayoutProps> = ({
   children,
-  pageTitle = "Tendendê",
-  padding = 0,
+  pageTitle = "Meu App",
+  maxWidth = "lg",
+  padding = true,
   hideNavbar = false,
-  hideFooter = false, // Certifique-se de que essa prop existe e tem valor padrão
+  hideFooter = false,
 }) => {
+  useEffect(() => {
+    document.title = pageTitle;
+  }, [pageTitle]);
+
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-      <title>{pageTitle}</title>
+    <LayoutWrapper>
       {!hideNavbar && <Navbar />}
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          padding: padding,
-        }}
-      >
-        {children}
-      </Box>
-      {!hideFooter && <Footer />}{" "}
-      {/* Certifique-se de que isso está condicionado corretamente */}
-    </Box>
+      
+      <Main>
+        <Container 
+          $maxWidth={maxWidth} 
+          $padding={padding}
+        >
+          {children}
+        </Container>
+      </Main>
+      
+      {!hideFooter && <Footer />}
+    </LayoutWrapper>
   );
 };
 

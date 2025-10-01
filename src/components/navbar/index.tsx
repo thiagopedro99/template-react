@@ -1,95 +1,92 @@
+// src/components/navbar/index.tsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { IconButton, Drawer } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
+import { Container, Flex } from "@components/common";
 import {
-  NavbarContainer,
-  NavbarContent,
-  LogoLink,
+  Nav,
   Logo,
   DesktopMenu,
   MenuLink,
+  MobileMenuButton,
+  MobileMenu,
   MobileMenuLink,
+  Overlay,
+  CloseButton,
+  HamburgerIcon,
+  CloseIcon,
 } from "./styles";
 
-const menuItems = [
+interface MenuItem {
+  label: string;
+  path: string;
+}
+
+interface NavbarProps {
+  logo?: string;
+  menuItems?: MenuItem[];
+}
+
+const defaultMenuItems: MenuItem[] = [
   { label: "Home", path: "/" },
-  { label: "Link2", path: "/Link2" },
-  { label: "Link3", path: "/Link3" },
-  { label: "Link4", path: "/Link4" },
-  { label: "Link5", path: "/Link5" },
+  { label: "Sobre", path: "/sobre" },
+  { label: "Serviços", path: "/servicos" },
+  { label: "Contato", path: "/contato" },
 ];
 
-const Navbar = () => {
+const Navbar = ({ 
+  logo = "Logo", 
+  menuItems = defaultMenuItems 
+}: NavbarProps) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
+  const handleToggle = () => setMobileOpen(!mobileOpen);
+  
   const handleNavigation = (path: string) => {
     setMobileOpen(false);
     navigate(path);
   };
 
   return (
-    <NavbarContainer position="sticky">
-      <NavbarContent>
-        <LogoLink to="/">
-          <Logo>Logotipo</Logo>
-        </LogoLink>
+    <>
+      <Nav>
+        <Container $maxWidth="xl">
+          <Flex $justify="between" $align="center" style={{ height: '64px' }}>
+            <Logo to="/">{logo}</Logo>
 
-        <DesktopMenu>
-          {menuItems.map((item) => (
-            <MenuLink key={item.path} to={item.path}>
-              {item.label}
-            </MenuLink>
-          ))}
-        </DesktopMenu>
+            <DesktopMenu>
+              {menuItems.map((item) => (
+                <MenuLink key={item.path} to={item.path}>
+                  {item.label}
+                </MenuLink>
+              ))}
+            </DesktopMenu>
 
-        <IconButton
-          sx={{
-            display: { xs: "block", md: "none" },
-            color: "#333",
-          }}
-          aria-label="open drawer"
-          onClick={handleDrawerToggle}
-        >
-          <MenuIcon />
-        </IconButton>
+            <MobileMenuButton onClick={handleToggle} aria-label="Menu">
+              <HamburgerIcon />
+            </MobileMenuButton>
+          </Flex>
+        </Container>
+      </Nav>
 
-        <Drawer
-          anchor="right"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          sx={{
-            "& .MuiDrawer-paper": {
-              width: 250,
-              padding: "20px",
-            },
-          }}
-        >
-          <IconButton
-            onClick={handleDrawerToggle}
-            sx={{ marginBottom: 2, alignSelf: "flex-end" }}
+      <Overlay $isOpen={mobileOpen} onClick={handleToggle} />
+
+      <MobileMenu $isOpen={mobileOpen}>
+        <CloseButton onClick={handleToggle} aria-label="Fechar menu">
+          <CloseIcon />
+        </CloseButton>
+
+        {menuItems.map((item) => (
+          <MobileMenuLink
+            key={item.path}
+            to={item.path}
+            onClick={() => handleNavigation(item.path)}
           >
-            <CloseIcon />
-          </IconButton>
-
-          {menuItems.map((item) => (
-            <MobileMenuLink
-              key={item.path}
-              to={item.path}
-              onClick={() => handleNavigation(item.path)}
-            >
-              {item.label}
-            </MobileMenuLink>
-          ))}
-        </Drawer>
-      </NavbarContent>
-    </NavbarContainer>
+            {item.label}
+          </MobileMenuLink>
+        ))}
+      </MobileMenu>
+    </>
   );
 };
 

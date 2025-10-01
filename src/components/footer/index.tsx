@@ -1,91 +1,49 @@
-import {
-  Box,
-  Container,
-  Typography,
-  Grid,
-  Link,
-  IconButton,
-} from "@mui/material";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import YouTubeIcon from "@mui/icons-material/YouTube";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+// src/components/footer/index.tsx
+import { Container, Flex } from '@components/common';
+import { FooterContainer, Link, Copyright } from './styles';
 
-const Footer = () => {
+interface FooterLink {
+  label: string;
+  href: string;
+}
+
+interface FooterProps {
+  companyName?: string;
+  year?: number;
+  links?: FooterLink[];
+}
+
+const Footer = ({ 
+  companyName = "Sua Empresa",
+  year = new Date().getFullYear(),
+  links = []
+}: FooterProps) => {
   return (
-    <Box
-      component="footer"
-      sx={{
-        bgcolor: "primary.main",
-        color: "primary.contrastText",
-        py: 6,
-        mt: "auto",
-      }}
-    >
-      <Container maxWidth="lg">
-        <Grid container spacing={12}>
-          <Grid item xs={12} md={4}>
-            <Typography variant="h6" gutterBottom>
-              Template
-            </Typography>
-            <Typography variant="body">
-              template criado para facilitar o desenvolvimento de novos projetos
-            </Typography>
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <Typography variant="h6" gutterBottom>
-              Contato
-            </Typography>
-            <Typography variant="body2" paragraph>
-              Email: contato@tendende.com.br
-            </Typography>
-            <Typography variant="body2" paragraph>
-              Telefone: (11) 99999-9999
-            </Typography>
-            <Box sx={{ mt: 2 }}>
-              <IconButton color="inherit" edge="start" aria-label="Facebook" sx={{ pl: 1.2 }}>
-                <FacebookIcon />
-              </IconButton>
-              <IconButton color="inherit" aria-label="Instagram">
-                <InstagramIcon />
-              </IconButton>
-              <IconButton color="inherit" aria-label="YouTube">
-                <YouTubeIcon />
-              </IconButton>
-              <IconButton color="inherit" aria-label="WhatsApp">
-                <WhatsAppIcon />
-              </IconButton>
-            </Box>
-          </Grid>
-
-          <Grid margin={"auto"} item xs={12} md={4}>
-            <Typography variant="h6" gutterBottom>
-              Home
-            </Typography>
-            <Link href="/Link2" color="inherit" display="block" sx={{ mb: 1 }}>
-              Link2
-            </Link>
-            <Link href="/Link3" color="inherit" display="block" sx={{ mb: 1 }}>
-              Link3
-            </Link>
-            <Link href="/Link4" color="inherit" display="block" sx={{ mb: 1 }}>
-              Link4
-            </Link>
-            <Link href="/Link5" color="inherit" display="block">
-              Link5
-            </Link>
-          </Grid>
-        </Grid>
-
-        <Box
-          sx={{ mt: 5, borderTop: "1px solid rgba(255,255,255,0.2)", pt: 2 }}
+    <FooterContainer>
+      <Container $maxWidth="xl">
+        <Flex 
+          $direction="row" 
+          $justify="between" 
+          $align="center"
+          $wrap
+          $gap="1.5rem"
         >
-          <Typography variant="body2" align="center">
-            © {new Date().getFullYear()} template. Todos os direitos reservados.
-          </Typography>
-        </Box>
+          {links.length > 0 && (
+            <Flex $gap="1.5rem" $wrap>
+              {links.map((link) => (
+                <Link key={link.href} href={link.href}>
+                  {link.label}
+                </Link>
+              ))}
+            </Flex>
+          )}
+          
+          <Copyright>
+            © {year} {companyName}. Todos os direitos reservados.
+          </Copyright>
+        </Flex>
       </Container>
-    </Box>
+    </FooterContainer>
   );
 };
 
