@@ -23,7 +23,7 @@ const Footer = ({
       <Container $maxWidth="xl">
         <Flex 
           $direction="row" 
-          $justify="between" 
+          $justify="center" 
           $align="center"
           $wrap
           $gap="1.5rem"
