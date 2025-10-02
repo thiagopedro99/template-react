@@ -1,3 +1,4 @@
+// src/styles/globalStyles.ts
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
@@ -20,6 +21,10 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
+    
+    /* Transição suave ao mudar de tema */
+    transition: color ${({ theme }) => theme.transitions.normal},
+                background-color ${({ theme }) => theme.transitions.normal};
   }
 
   #root {
