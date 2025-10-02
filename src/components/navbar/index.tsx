@@ -29,7 +29,7 @@ interface NavbarProps {
 
 const defaultMenuItems: MenuItem[] = [
   { label: "Home", path: "/" },
-  { label: "Sobre", path: "/sobre" },
+  { label: "Components", path: "/components" },
   { label: "Serviços", path: "/servicos" },
   { label: "Contato", path: "/contato" },
 ];
