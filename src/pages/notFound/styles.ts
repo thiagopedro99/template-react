@@ -1,45 +1,35 @@
+// src/pages/notFound/styles.ts
 import styled from 'styled-components';
 
-
-const Container = styled.div`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 24px;
-`;
-
-const Title = styled.h1`
-  font-size: 6rem;
-  font-weight: 900;
-  margin-bottom: 16px;
-`;
-
-const Subtitle = styled.h2`
-  font-size: 1.5rem;
-  margin-bottom: 32px;
-`;
-
-const Message = styled.p`
-  font-size: 1rem;
-  margin-bottom: 32px;
-  max-width: 500px;
-`;
-
-const Button = styled.button`
-  background-color: #1976d2;
-  color: #fff;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #1565c0;
+export const ErrorCode = styled.h1`
+  font-size: 8rem;
+  font-weight: ${({ theme }) => theme.fonts.weights.bold};
+  color: ${({ theme }) => theme.colors.primaryDark};
+  margin: 0;
+  line-height: 1;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    font-size: 6rem;
   }
 `;
 
-export { Container, Title, Subtitle, Message, Button };
+export const Title = styled.h2`
+  font-size: ${({ theme }) => theme.fonts.sizes['2xl']};
+  font-weight: ${({ theme }) => theme.fonts.weights.semibold};
+  color: ${({ theme }) => theme.colors.text.primary};
+  margin: 0;
+  text-align: center;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    font-size: ${({ theme }) => theme.fonts.sizes.xl};
+  }
+`;
+
+export const Message = styled.p`
+  font-size: ${({ theme }) => theme.fonts.sizes.base};
+  color: ${({ theme }) => theme.colors.text.secondary};
+  text-align: center;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 400px;
+`;
