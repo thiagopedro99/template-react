@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Flex } from "@components/common";
+import ThemeToggle from "@components/common/ThemeToggle";
 import {
   Nav,
   Logo,
@@ -54,17 +55,21 @@ const Navbar = ({
           <Flex $justify="between" $align="center" style={{ height: '64px' }}>
             <Logo to="/">{logo}</Logo>
 
-            <DesktopMenu>
-              {menuItems.map((item) => (
-                <MenuLink key={item.path} to={item.path}>
-                  {item.label}
-                </MenuLink>
-              ))}
-            </DesktopMenu>
+            <Flex $align="center" $gap="1rem">
+              <DesktopMenu>
+                {menuItems.map((item) => (
+                  <MenuLink key={item.path} to={item.path}>
+                    {item.label}
+                  </MenuLink>
+                ))}
+              </DesktopMenu>
 
-            <MobileMenuButton onClick={handleToggle} aria-label="Menu">
-              <HamburgerIcon />
-            </MobileMenuButton>
+              <ThemeToggle />
+
+              <MobileMenuButton onClick={handleToggle} aria-label="Menu">
+                <HamburgerIcon />
+              </MobileMenuButton>
+            </Flex>
           </Flex>
         </Container>
       </Nav>
@@ -72,9 +77,12 @@ const Navbar = ({
       <Overlay $isOpen={mobileOpen} onClick={handleToggle} />
 
       <MobileMenu $isOpen={mobileOpen}>
-        <CloseButton onClick={handleToggle} aria-label="Fechar menu">
-          <CloseIcon />
-        </CloseButton>
+        <Flex $justify="between" $align="center" style={{ marginBottom: '1rem' }}>
+          <ThemeToggle />
+          <CloseButton onClick={handleToggle} aria-label="Fechar menu">
+            <CloseIcon />
+          </CloseButton>
+        </Flex>
 
         {menuItems.map((item) => (
           <MobileMenuLink
