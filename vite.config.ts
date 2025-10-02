@@ -25,7 +25,8 @@ export default defineConfig({
       '@stores': resolve(__dirname, './src/stores'),
       '@utils': resolve(__dirname, './src/utils'),
       '@hooks': resolve(__dirname, './src/hooks'),
-      '@pages': resolve(__dirname, './src/pages')
+      '@pages': resolve(__dirname, './src/pages'),
+      '@services': resolve(__dirname, './src/services'),
     },
   },
   build: {
