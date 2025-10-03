@@ -67,32 +67,6 @@ export const MobileMenuButton = styled.button`
   }
 `;
 
-export const HamburgerIcon = styled.span`
-  width: 24px;
-  height: 2px;
-  background-color: currentColor;
-  position: relative;
-  display: block;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: currentColor;
-    left: 0;
-    transition: transform ${({ theme }) => theme.transitions.fast};
-  }
-
-  &::before {
-    top: -8px;
-  }
-
-  &::after {
-    top: 8px;
-  }
-`;
 
 export const Overlay = styled.div<{ $isOpen: boolean }>`
   position: fixed;
@@ -135,32 +109,6 @@ export const CloseButton = styled.button`
   padding: ${({ theme }) => theme.spacing.sm};
   color: ${({ theme }) => theme.colors.text.primary};
   margin-bottom: ${({ theme }) => theme.spacing.md};
-`;
-
-export const CloseIcon = styled.span`
-  width: 24px;
-  height: 24px;
-  position: relative;
-  display: block;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: currentColor;
-    top: 50%;
-    left: 0;
-  }
-
-  &::before {
-    transform: rotate(45deg);
-  }
-
-  &::after {
-    transform: rotate(-45deg);
-  }
 `;
 
 export const MobileMenuLink = styled(NavLink)`

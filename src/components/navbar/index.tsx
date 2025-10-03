@@ -13,9 +13,8 @@ import {
   MobileMenuLink,
   Overlay,
   CloseButton,
-  HamburgerIcon,
-  CloseIcon,
 } from "./styles";
+import { Menu, X } from "lucide-react";
 
 interface MenuItem {
   label: string;
@@ -34,15 +33,15 @@ const defaultMenuItems: MenuItem[] = [
   { label: "Contato", path: "/contato" },
 ];
 
-const Navbar = ({ 
-  logo = "Logo", 
-  menuItems = defaultMenuItems 
+const Navbar = ({
+  logo = "Logo",
+  menuItems = defaultMenuItems
 }: NavbarProps) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleToggle = () => setMobileOpen(!mobileOpen);
-  
+
   const handleNavigation = (path: string) => {
     setMobileOpen(false);
     navigate(path);
@@ -67,8 +66,9 @@ const Navbar = ({
               <ThemeToggle />
 
               <MobileMenuButton onClick={handleToggle} aria-label="Menu">
-                <HamburgerIcon />
+                <Menu size={24} />
               </MobileMenuButton>
+
             </Flex>
           </Flex>
         </Container>
@@ -80,7 +80,7 @@ const Navbar = ({
         <Flex $justify="between" $align="center" style={{ marginBottom: '1rem' }}>
           <ThemeToggle />
           <CloseButton onClick={handleToggle} aria-label="Fechar menu">
-            <CloseIcon />
+            <X size={24} />
           </CloseButton>
         </Flex>
 
