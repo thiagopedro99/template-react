@@ -13,6 +13,7 @@ import {
   Select,
   Flex,
   Grid,
+  Skeleton,
 } from '@components/common';
 import { useToast } from '@components/toast';
 import { DemoSection, SectionTitle } from './styles';
@@ -37,7 +38,7 @@ const ComponentsDemo = () => {
   return (
     <Layout pageTitle="Demo de Componentes">
       <Flex $direction="column" $gap="2rem">
-        
+
         {/* Buttons */}
         <DemoSection>
           <Card>
@@ -49,7 +50,7 @@ const ComponentsDemo = () => {
               <Button $variant="ghost">Ghost</Button>
               <Button disabled>Disabled</Button>
             </Flex>
-            
+
             <Flex $gap="1rem" $wrap style={{ marginTop: '1rem' }}>
               <Button $size="sm">Small</Button>
               <Button $size="md">Medium</Button>
@@ -204,7 +205,7 @@ const ComponentsDemo = () => {
                   <Loading size="lg" />
                 </Flex>
               </div>
-              
+
               <div>
                 <p style={{ marginBottom: '0.5rem' }}>Com texto:</p>
                 <Loading size="md" text="Carregando..." />
@@ -266,7 +267,36 @@ const ComponentsDemo = () => {
             </Flex>
           </Card>
         </DemoSection>
+        <DemoSection>
+          <Card>
+            <SectionTitle>Skeleton</SectionTitle>
 
+            <Flex $direction="column" $gap="2rem">
+              <div>
+                <p style={{ marginBottom: '0.5rem' }}>Texto:</p>
+                <Flex $direction="column" $gap="0.5rem">
+                  <Skeleton variant="text" width="100%" />
+                  <Skeleton variant="text" width="80%" />
+                  <Skeleton variant="text" width="60%" />
+                </Flex>
+              </div>
+
+              <div>
+                <p style={{ marginBottom: '0.5rem' }}>Circular (Avatar):</p>
+                <Flex $gap="1rem">
+                  <Skeleton variant="circular" width="40px" />
+                  <Skeleton variant="circular" width="60px" />
+                  <Skeleton variant="circular" width="80px" />
+                </Flex>
+              </div>
+
+              <div>
+                <p style={{ marginBottom: '0.5rem' }}>Retangular (Card/Image):</p>
+                <Skeleton variant="rectangular" height="200px" />
+              </div>
+            </Flex>
+          </Card>
+        </DemoSection>
       </Flex>
     </Layout>
   );
