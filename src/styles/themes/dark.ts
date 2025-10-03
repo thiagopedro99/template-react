@@ -1,31 +1,31 @@
 // src/styles/themes/dark.ts
 export const darkTheme = {
     colors: {
-        primary: '#9CA3AF',
-        primaryDark: '#D1D5DB',
-        primaryLight: '#6B7280',
+        primary: '#90caf9',
+        primaryDark: '#42a5f5',
+        primaryLight: '#e3f2fd',
 
-        secondary: '#D1D5DB',
-        secondaryDark: '#F9FAFB',
-        secondaryLight: '#9CA3AF',
+        secondary: '#f48fb1',
+        secondaryDark: '#f06292',
+        secondaryLight: '#fce4ec',
 
-        background: '#111827',
-        surface: '#1F2937',
+        background: '#121212',
+        surface: '#1e1e1e',
 
         text: {
-            primary: '#F9FAFB',
-            secondary: '#D1D5DB',
-            disabled: '#6B7280',
-            inverse: '#111827',
+            primary: '#ffffff',
+            secondary: 'rgba(255, 255, 255, 0.7)',
+            disabled: 'rgba(255, 255, 255, 0.5)',
+            inverse: 'rgba(0, 0, 0, 0.87)',
         },
 
-        border: '#374151',
-        borderLight: '#2D3748',
+        border: '#424242',
+        borderLight: '#2c2c2c',
 
-        error: '#F87171',
-        success: '#34D399',
-        warning: '#FBBF24',
-        info: '#60A5FA',
+        error: '#f44336',
+        success: '#66bb6a',
+        warning: '#ffa726',
+        info: '#29b6f6',
 
         overlay: 'rgba(0, 0, 0, 0.7)',
     },

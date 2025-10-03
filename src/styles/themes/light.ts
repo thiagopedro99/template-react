@@ -1,31 +1,31 @@
 // src/styles/themes/light.ts
 export const lightTheme = {
     colors: {
-        primary: '#6B7280',
-        primaryDark: '#4B5563',
-        primaryLight: '#9CA3AF',
+        primary: '#1976d2',
+        primaryDark: '#1565c0',
+        primaryLight: '#42a5f5',
 
-        secondary: '#374151',
-        secondaryDark: '#1F2937',
-        secondaryLight: '#6B7280',
+        secondary: '#dc004e',
+        secondaryDark: '#c51162',
+        secondaryLight: '#f50057',
 
-        background: '#F9FAFB',
-        surface: '#FFFFFF',
+        background: '#fafafa',
+        surface: '#ffffff',
 
         text: {
-            primary: '#111827',
-            secondary: '#6B7280',
-            disabled: '#9CA3AF',
-            inverse: '#FFFFFF',
+            primary: 'rgba(0, 0, 0, 0.87)',
+            secondary: 'rgba(0, 0, 0, 0.6)',
+            disabled: 'rgba(0, 0, 0, 0.38)',
+            inverse: '#ffffff',
         },
 
-        border: '#E5E7EB',
-        borderLight: '#F3F4F6',
+        border: '#e0e0e0',
+        borderLight: '#f5f5f5',
 
-        error: '#EF4444',
-        success: '#10B981',
-        warning: '#F59E0B',
-        info: '#3B82F6',
+        error: '#d32f2f',
+        success: '#2e7d32',
+        warning: '#ed6c02',
+        info: '#0288d1',
 
         overlay: 'rgba(0, 0, 0, 0.5)',
     },
