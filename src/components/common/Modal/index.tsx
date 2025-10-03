@@ -11,9 +11,9 @@ import {
   CloseButton,
   ModalBody,
   ModalFooter,
-  CloseIcon,
 } from './styles';
 import { ModalProps } from './types';
+import { X } from 'lucide-react';
 
 export const Modal = ({
   isOpen,
@@ -60,7 +60,7 @@ export const Modal = ({
   const modalContent = (
     <>
       <Overlay $isOpen={isOpen} onClick={handleOverlayClick} />
-      
+
       <ModalContainer
         $isOpen={isOpen}
         $size={size}
@@ -72,10 +72,10 @@ export const Modal = ({
         {(title || showCloseButton) && (
           <ModalHeader>
             {title && <ModalTitle id="modal-title">{title}</ModalTitle>}
-            
+
             {showCloseButton && (
               <CloseButton onClick={onClose} aria-label="Fechar modal">
-                <CloseIcon />
+                <X size={20} />
               </CloseButton>
             )}
           </ModalHeader>

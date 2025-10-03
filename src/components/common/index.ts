@@ -10,3 +10,4 @@ export { Loading, InlineLoading } from './Loading';
 export { Checkbox } from './Checkbox';
 export { Select } from './Select';
 export { default as ThemeToggle } from './ThemeToggle';
+export { Skeleton } from './Skeleton';

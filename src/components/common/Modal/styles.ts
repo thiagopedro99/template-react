@@ -94,32 +94,6 @@ export const CloseButton = styled.button`
   }
 `;
 
-export const CloseIcon = styled.span`
-  width: 20px;
-  height: 20px;
-  position: relative;
-  display: block;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: currentColor;
-    top: 50%;
-    left: 0;
-  }
-
-  &::before {
-    transform: rotate(45deg);
-  }
-
-  &::after {
-    transform: rotate(-45deg);
-  }
-`;
-
 export const ModalBody = styled.div`
   padding: ${({ theme }) => theme.spacing.lg};
   overflow-y: auto;
