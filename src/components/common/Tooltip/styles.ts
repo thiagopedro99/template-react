@@ -12,12 +12,18 @@ export const TooltipWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  &:hover > span,
-  &:focus-within > span {
+  &:hover > span {  // Remove a linha &:focus-within
     opacity: 1;
     visibility: visible;
     animation: ${fadeIn} 0.2s ease forwards;
   }
+
+  @media (hover: none) and (pointer: coarse) {
+    & > span {
+      display: none !important;
+    }
+  }
+
 `;
 
 export const TooltipText = styled.span<{ $position: "top" | "bottom" | "left" | "right" }>`
