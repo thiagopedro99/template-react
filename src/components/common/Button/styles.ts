@@ -16,20 +16,21 @@ export const StyledButton = styled.button<ButtonProps>`
   font-family: inherit;
   
   /* Size */
-  ${({ $size = 'md', theme }) => {
+/* Size */
+${({ $size = 'md', theme }) => {
     const sizes = {
       sm: css`
-        padding: ${theme.spacing.sm} ${theme.spacing.md};
-        font-size: ${theme.fonts.sizes.sm};
-      `,
+      padding: ${theme.spacing.xs} ${theme.spacing.md};
+      font-size: ${theme.fonts.sizes.sm};
+    `,
       md: css`
-        padding: ${theme.spacing.md} ${theme.spacing.lg};
-        font-size: ${theme.fonts.sizes.base};
-      `,
+      padding: ${theme.spacing.sm} ${theme.spacing.lg};
+      font-size: ${theme.fonts.sizes.base};
+    `,
       lg: css`
-        padding: ${theme.spacing.lg} ${theme.spacing.xl};
-        font-size: ${theme.fonts.sizes.lg};
-      `,
+      padding: ${theme.spacing.md} ${theme.spacing.xl};
+      font-size: ${theme.fonts.sizes.lg};
+    `,
     };
     return sizes[$size];
   }}
