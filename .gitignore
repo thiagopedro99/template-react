@@ -22,3 +22,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+package-lock.json
+meu-template-react-merged.txt
