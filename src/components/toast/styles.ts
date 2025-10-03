@@ -46,8 +46,25 @@ export const ToastContainer = styled.div`
   top: 1em;
   right: 1em;
   width: 320px;
+  max-height: calc(100vh - 2em);
+  overflow-y: auto;
+  overflow-x: hidden;
   box-sizing: border-box;
   color: #fff;
+  
+  /* Scrollbar personalizado */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+  }
   
   @media only screen and (max-width: 480px) {
     width: 100vw;
@@ -58,7 +75,6 @@ export const ToastContainer = styled.div`
     right: 0;
   }
 `;
-
 interface ToastItemProps {
   $type: ToastType;
   $isExiting?: boolean;
@@ -81,26 +97,26 @@ export const ToastItem = styled.div<ToastItemProps>`
   direction: ltr;
   pointer-events: auto;
   
-  animation: ${({ $isExiting }) => 
-    $isExiting 
+  animation: ${({ $isExiting }) =>
+    $isExiting
       ? css`${bounceOutRight} 0.4s both`
       : css`${bounceInRight} 0.7s both`
   };
 
-  ${({ $type }) => {
+ ${({ $type }) => {
     const styles = {
       success: css`
-        background-color: #07bc0c;
-      `,
+      background-color: #2e7d32; 
+    `,
       error: css`
-        background-color: #e74c3c;
-      `,
+      background-color: #d32f2f; 
+    `,
       warning: css`
-        background-color: #f1c40f;
-      `,
+      background-color: #f57a16ff; 
+    `,
       info: css`
-        background-color: #3498db;
-      `,
+      background-color: #0288d1; 
+    `,
     };
     return styles[$type];
   }}
@@ -119,12 +135,7 @@ export const ToastIcon = styled.div`
   width: 20px;
   flex-shrink: 0;
   display: flex;
-  
-  svg {
-    fill: rgba(255, 255, 255, 0.9);
-    width: 100%;
-    height: 100%;
-  }
+  color: rgba(255, 255, 255, 0.9);
 `;
 
 export const ToastContent = styled.div`
@@ -160,9 +171,9 @@ export const CloseButton = styled.button`
   }
 `;
 
-export const ProgressBar = styled.div<{ 
-  $type: ToastType; 
-  $duration: number; 
+export const ProgressBar = styled.div<{
+  $type: ToastType;
+  $duration: number;
   $isPaused: boolean;
   $isRunning: boolean;
 }>`
