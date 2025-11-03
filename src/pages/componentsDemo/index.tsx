@@ -16,7 +16,10 @@ import {
   Skeleton,
 } from '@components/common';
 import { useToast } from '@components/toast';
-import { DemoSection, SectionTitle } from './styles';
+import { Code } from 'lucide-react';
+import { DemoSection, SectionHeader, SectionTitle } from './styles';
+import { codeExamples } from '@utils/codeExamples';
+import MultiCodeBlock from '@components/common/MultiCodeBlock';
 
 const ComponentsDemo = () => {
   const toast = useToast();
@@ -26,6 +29,11 @@ const ComponentsDemo = () => {
   const [inputValue, setInputValue] = useState('');
   const [selectValue, setSelectValue] = useState('');
   const [checked, setChecked] = useState(false);
+  
+  // Modal de código
+  const [codeModalOpen, setCodeModalOpen] = useState(false);
+  const [currentCodeBlocks, setCurrentCodeBlocks] = useState<Array<{title: string; code: string}>>([]);
+  const [currentCodeTitle, setCurrentCodeTitle] = useState('');
 
   const handleLoadingDemo = () => {
     setLoadingOverlay(true);
@@ -35,6 +43,12 @@ const ComponentsDemo = () => {
     }, 2000);
   };
 
+  const showCode = (blocks: Array<{title: string; code: string}>, title: string) => {
+    setCurrentCodeBlocks(blocks);
+    setCurrentCodeTitle(title);
+    setCodeModalOpen(true);
+  };
+
   return (
     <Layout pageTitle="Demo de Componentes">
       <Flex $direction="column" $gap="2rem">
@@ -42,7 +56,17 @@ const ComponentsDemo = () => {
         {/* Buttons */}
         <DemoSection>
           <Card>
-            <SectionTitle>Botões</SectionTitle>
+            <SectionHeader>
+              <SectionTitle>Botões</SectionTitle>
+              <Button 
+                $size="sm" 
+                $variant="outline"
+                onClick={() => showCode(codeExamples.button, 'Button')}
+              >
+                <Code size={16} /> Ver Código
+              </Button>
+            </SectionHeader>
+            
             <Flex $gap="1rem" $wrap>
               <Button $variant="primary">Primary</Button>
               <Button $variant="secondary">Secondary</Button>
@@ -62,7 +86,17 @@ const ComponentsDemo = () => {
         {/* Inputs */}
         <DemoSection>
           <Card>
-            <SectionTitle>Inputs</SectionTitle>
+            <SectionHeader>
+              <SectionTitle>Inputs</SectionTitle>
+              <Button 
+                $size="sm" 
+                $variant="outline"
+                onClick={() => showCode(codeExamples.input, 'Input')}
+              >
+                <Code size={16} /> Ver Código
+              </Button>
+            </SectionHeader>
+            
             <Grid $columns={2} $gap="1rem">
               <Input
                 label="Nome"
@@ -103,7 +137,17 @@ const ComponentsDemo = () => {
         {/* Select */}
         <DemoSection>
           <Card>
-            <SectionTitle>Select</SectionTitle>
+            <SectionHeader>
+              <SectionTitle>Select</SectionTitle>
+              <Button 
+                $size="sm" 
+                $variant="outline"
+                onClick={() => showCode(codeExamples.select, 'Select')}
+              >
+                <Code size={16} /> Ver Código
+              </Button>
+            </SectionHeader>
+            
             <Grid $columns={2} $gap="1rem">
               <Select
                 label="Escolha uma opção"
@@ -132,7 +176,17 @@ const ComponentsDemo = () => {
         {/* Checkbox */}
         <DemoSection>
           <Card>
-            <SectionTitle>Checkbox</SectionTitle>
+            <SectionHeader>
+              <SectionTitle>Checkbox</SectionTitle>
+              <Button 
+                $size="sm" 
+                $variant="outline"
+                onClick={() => showCode(codeExamples.checkbox, 'Checkbox')}
+              >
+                <Code size={16} /> Ver Código
+              </Button>
+            </SectionHeader>
+            
             <Flex $direction="column" $gap="0.5rem" $align="start">
               <Checkbox
                 label="Aceito os termos e condições"
@@ -149,7 +203,17 @@ const ComponentsDemo = () => {
         {/* Modal */}
         <DemoSection>
           <Card>
-            <SectionTitle>Modais</SectionTitle>
+            <SectionHeader>
+              <SectionTitle>Modais</SectionTitle>
+              <Button 
+                $size="sm" 
+                $variant="outline"
+                onClick={() => showCode(codeExamples.modal, 'Modal')}
+              >
+                <Code size={16} /> Ver Código
+              </Button>
+            </SectionHeader>
+            
             <Flex $gap="1rem" $wrap>
               <Button onClick={() => setModalOpen(true)}>
                 Abrir Modal
@@ -194,7 +258,17 @@ const ComponentsDemo = () => {
         {/* Loading */}
         <DemoSection>
           <Card>
-            <SectionTitle>Loading</SectionTitle>
+            <SectionHeader>
+              <SectionTitle>Loading</SectionTitle>
+              <Button 
+                $size="sm" 
+                $variant="outline"
+                onClick={() => showCode(codeExamples.loading, 'Loading')}
+              >
+                <Code size={16} /> Ver Código
+              </Button>
+            </SectionHeader>
+            
             <Flex $gap="2rem" $wrap $align="center">
               <div>
                 <p style={{ marginBottom: '0.5rem' }}>Tamanhos:</p>
@@ -230,7 +304,17 @@ const ComponentsDemo = () => {
 
         {/* Cards */}
         <DemoSection>
-          <SectionTitle>Cards</SectionTitle>
+          <SectionHeader>
+            <SectionTitle>Cards</SectionTitle>
+            <Button 
+              $size="sm" 
+              $variant="outline"
+              onClick={() => showCode(codeExamples.card, 'Card')}
+            >
+              <Code size={16} /> Ver Código
+            </Button>
+          </SectionHeader>
+          
           <Grid $columns={3} $gap="1rem">
             <Card $variant="default">
               <h3>Card Padrão</h3>
@@ -250,7 +334,17 @@ const ComponentsDemo = () => {
         {/* Toasts */}
         <DemoSection>
           <Card>
-            <SectionTitle>Toasts (Notificações)</SectionTitle>
+            <SectionHeader>
+              <SectionTitle>Toasts (Notificações)</SectionTitle>
+              <Button 
+                $size="sm" 
+                $variant="outline"
+                onClick={() => showCode(codeExamples.toast, 'Toast')}
+              >
+                <Code size={16} /> Ver Código
+              </Button>
+            </SectionHeader>
+            
             <Flex $gap="1rem" $wrap>
               <Button onClick={() => toast.success('Sucesso!')}>
                 Success
@@ -267,9 +361,20 @@ const ComponentsDemo = () => {
             </Flex>
           </Card>
         </DemoSection>
+
+        {/* Skeleton */}
         <DemoSection>
           <Card>
-            <SectionTitle>Skeleton</SectionTitle>
+            <SectionHeader>
+              <SectionTitle>Skeleton</SectionTitle>
+              <Button 
+                $size="sm" 
+                $variant="outline"
+                onClick={() => showCode(codeExamples.skeleton, 'Skeleton')}
+              >
+                <Code size={16} /> Ver Código
+              </Button>
+            </SectionHeader>
 
             <Flex $direction="column" $gap="2rem">
               <div>
@@ -297,7 +402,90 @@ const ComponentsDemo = () => {
             </Flex>
           </Card>
         </DemoSection>
+
+        {/* Flex */}
+        <DemoSection>
+          <Card>
+            <SectionHeader>
+              <SectionTitle>Flex (Layout)</SectionTitle>
+              <Button 
+                $size="sm" 
+                $variant="outline"
+                onClick={() => showCode(codeExamples.flex, 'Flex')}
+              >
+                <Code size={16} /> Ver Código
+              </Button>
+            </SectionHeader>
+            
+            <Flex $direction="column" $gap="1rem">
+              <div>
+                <p style={{ marginBottom: '0.5rem' }}>Horizontal (padrão):</p>
+                <Flex $gap="0.5rem">
+                  <Card $padding="1rem">Item 1</Card>
+                  <Card $padding="1rem">Item 2</Card>
+                  <Card $padding="1rem">Item 3</Card>
+                </Flex>
+              </div>
+              
+              <div>
+                <p style={{ marginBottom: '0.5rem' }}>Vertical:</p>
+                <Flex $direction="column" $gap="0.5rem">
+                  <Card $padding="1rem">Item 1</Card>
+                  <Card $padding="1rem">Item 2</Card>
+                  <Card $padding="1rem">Item 3</Card>
+                </Flex>
+              </div>
+            </Flex>
+          </Card>
+        </DemoSection>
+
+        {/* Grid */}
+        <DemoSection>
+          <Card>
+            <SectionHeader>
+              <SectionTitle>Grid (Layout)</SectionTitle>
+              <Button 
+                $size="sm" 
+                $variant="outline"
+                onClick={() => showCode(codeExamples.grid, 'Grid')}
+              >
+                <Code size={16} /> Ver Código
+              </Button>
+            </SectionHeader>
+            
+            <Flex $direction="column" $gap="1.5rem">
+              <div>
+                <p style={{ marginBottom: '0.5rem' }}>2 Colunas:</p>
+                <Grid $columns={2} $gap="0.5rem">
+                  <Card $padding="1rem">Item 1</Card>
+                  <Card $padding="1rem">Item 2</Card>
+                  <Card $padding="1rem">Item 3</Card>
+                  <Card $padding="1rem">Item 4</Card>
+                </Grid>
+              </div>
+              
+              <div>
+                <p style={{ marginBottom: '0.5rem' }}>3 Colunas:</p>
+                <Grid $columns={3} $gap="0.5rem">
+                  <Card $padding="1rem">Item 1</Card>
+                  <Card $padding="1rem">Item 2</Card>
+                  <Card $padding="1rem">Item 3</Card>
+                </Grid>
+              </div>
+            </Flex>
+          </Card>
+        </DemoSection>
       </Flex>
+
+      {/* Modal de Código */}
+      <Modal
+        isOpen={codeModalOpen}
+        onClose={() => setCodeModalOpen(false)}
+        title={`Código: ${currentCodeTitle}`}
+        size="lg"
+      >
+        <MultiCodeBlock blocks={currentCodeBlocks} />
+      </Modal>
     </Layout>
   );
 };
