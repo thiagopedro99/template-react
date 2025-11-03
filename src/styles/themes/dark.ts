@@ -11,6 +11,7 @@ export const darkTheme = {
 
         background: '#121212',
         surface: '#1e1e1e',
+        full:'#000000',
 
         text: {
             primary: '#ffffff',

@@ -11,6 +11,7 @@ export const lightTheme = {
 
         background: '#fafafa',
         surface: '#ffffff',
+        full:'#1e1e1e',
 
         text: {
             primary: 'rgba(0, 0, 0, 0.87)',
