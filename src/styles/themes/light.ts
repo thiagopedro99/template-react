@@ -4,7 +4,7 @@ export const lightTheme = {
         primary: '#1976d2',
         primaryDark: '#1565c0',
         primaryLight: '#42a5f5',
-
+        matte: '#494747ff',
         secondary: '#dc004e',
         secondaryDark: '#c51162',
         secondaryLight: '#f50057',

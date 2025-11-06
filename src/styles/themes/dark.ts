@@ -4,6 +4,7 @@ export const darkTheme = {
         primary: '#90caf9',
         primaryDark: '#42a5f5',
         primaryLight: '#e3f2fd',
+        matte: '#494747ff',
 
         secondary: '#f48fb1',
         secondaryDark: '#f06292',
@@ -11,7 +12,7 @@ export const darkTheme = {
 
         background: '#121212',
         surface: '#1e1e1e',
-        full:'#000000',
+        full: '#000000',
 
         text: {
             primary: '#ffffff',
