@@ -2,20 +2,9 @@
 import Layout from "@components/layout";
 import { Title, Subtitle, Description } from "./styles";
 import { Button, Card, Container, Flex } from "@components/common";
-import { useToast } from '@components/toast';
 
 const Home = () => {
-  const toast = useToast();
-
-
-  const handleClick = () => {
-    toast.success('Operação realizada com sucesso!');
-    toast.info('Informação importante');
-    toast.error('Erro ao realizar operação');
-    toast.warning('Atenção, operação potencialmente perigosa');
-  };
-
-
+ 
   return (
     <Layout pageTitle="Home">
       <Container $maxWidth="lg">
