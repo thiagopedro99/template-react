@@ -40,9 +40,6 @@ const Home = () => {
             <Button $variant="outline">
               Saiba Mais
             </Button>
-            <Button onClick={handleClick}>
-              Toast
-            </Button>
           </Flex>
 
         </Flex>
