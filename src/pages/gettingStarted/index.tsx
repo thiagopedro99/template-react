@@ -422,12 +422,14 @@ VITE_ENV=development`}
                             <Button
                                 $variant="primary"
                                 onClick={() => navigate('/components')}
+                                $size='lg'
                             >
                                 Ver Componentes
                             </Button>
                             <Button
                                 $variant="outline"
                                 onClick={() => navigate('/')}
+                                $size='lg'
                             >
                                 Voltar para Home
                             </Button>
