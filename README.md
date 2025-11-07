@@ -446,5 +446,5 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 **Thiago Silva**
 
-- LinkedIn: [linkedin.com/in/thiago-silva](https://linkedin.com/in/thiago-silva)
+- LinkedIn: [linkedin.com/in/thiago-silva](https://www.linkedin.com/in/thiago-pedro-da-silva/)
 - GitHub: [github.com/thiagopedro99](https://github.com/thiagopedro99)
