@@ -29,12 +29,14 @@ const Home = () => {
             <Button 
               $variant="primary"
               onClick={() => navigate('/getting-started')}
+              $size="lg"
             >
               Começar
             </Button>
             <Button 
               $variant="outline"
               onClick={() => navigate('/components')}
+              $size='lg'
             >
               Ver Componentes
             </Button>
